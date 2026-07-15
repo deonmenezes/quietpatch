@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node --check src/app.js && node --check scripts/build.mjs"
+    "check": "node --check src/app.js && node --check src/analyzer.js && node --check scripts/build.mjs"
   },
   "engines": {
     "node": ">=20"

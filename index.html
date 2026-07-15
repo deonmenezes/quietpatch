@@ -9,6 +9,7 @@
       content="Review how an AI agent's permissions change before you deploy it. Everything stays in your browser."
     />
     <title>QuietPatch — Review agent permission changes</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -41,6 +42,7 @@
           </div>
           <label for="before-config">Current configuration JSON</label>
           <textarea id="before-config" spellcheck="false" placeholder='{"tools": ["read_file"]}'></textarea>
+          <p id="before-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="editor-card editor-card--after">
@@ -53,18 +55,25 @@
           </div>
           <label for="after-config">Proposed configuration JSON</label>
           <textarea id="after-config" spellcheck="false" placeholder='{"tools": ["read_file", "shell"]}'></textarea>
+          <p id="after-error" class="field-error" aria-live="polite"></p>
         </div>
 
         <div class="action-bar">
-          <p>JSON never leaves this tab.</p>
+          <div class="action-notes">
+            <p>JSON never leaves this tab.</p>
+            <button id="example-button" class="text-button" type="button">Load an example</button>
+          </div>
           <button id="review-button" class="primary-button" type="button">Review the patch <span>→</span></button>
         </div>
       </section>
 
       <section id="results" class="results" aria-live="polite" aria-labelledby="results-title" hidden>
-        <div class="results-heading">
-          <p class="eyebrow">Review brief</p>
-          <h2 id="results-title">Permission changes</h2>
+        <div class="results-heading results-heading--row">
+          <div>
+            <p class="eyebrow">Review brief</p>
+            <h2 id="results-title">Permission changes</h2>
+          </div>
+          <button id="copy-button" class="copy-button" type="button">Copy summary</button>
         </div>
         <div id="results-content"></div>
       </section>
